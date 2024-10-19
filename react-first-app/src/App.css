@@ -1,0 +1,19 @@
+.heading {
+  font-size: 4rem;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+  color: palevioletred;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.img-container {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

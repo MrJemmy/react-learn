@@ -1,15 +1,27 @@
-// import logo from './logo.svg';
 import "./App.css";
+import React from "react";
 import Basic from "./components/Basic";
+import Heading from "./components/Heading";
+import Form from "./components/Form";
 
 function App() {
-  const name = "Jaimin";
-  const img1 =
-    "https://dyl347hiwv3ct.cloudfront.net/app/uploads/2023/09/Join-us-at-IMG.webp";
   return (
     // <React.Fragment> </React.Fragment>
     <>
-      <Basic />
+      <div className="title">
+        <Heading />
+      </div>
+
+      <div className="img-container">
+        <Basic username="jaimin" />
+        <Basic username="gunjan" />
+        <Basic username="shachi" />
+        <Basic username="khushi" />
+      </div>
+
+      <div className="form-input">
+        <Form />
+      </div>
     </>
   );
 }
