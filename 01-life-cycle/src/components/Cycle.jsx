@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import style from "../css/custom.module.css";
 
 function Cycle(props) {
   const [count, setCount] = useState(0);
@@ -23,20 +24,29 @@ function Cycle(props) {
       console.log("(Cycle - on unmount):  run when component unmounts");
     };
   }, []);
-  
+
   useEffect(() => {
     console.log("(Cycle - every props update): run on every setCount");
   }, [props.heading]);
 
+  const headingStyle = {
+    backgroundColor: "red",
+    textAlign: "center",
+  };
+
   return (
     <>
-      <h1>props: {props.heading}</h1>
+      <h1 style={headingStyle}>props: {props.heading}</h1>
 
-      <h2>{count}</h2>
-      <button onClick={() => setCount(count + 1)}>count</button>
+      <div className={style.counter_box}>
+        <h2>{count}</h2>
+        <button onClick={() => setCount(count + 1)}>count</button>
+      </div>
 
-      <h2>{counter}</h2>
-      <button onClick={() => setCounter(counter + 1)}>counter</button>
+      <div className={style.counter_box}>
+        <h2>{counter}</h2>
+        <button onClick={() => setCounter(counter + 1)}>counter</button>
+      </div>
     </>
   );
 }

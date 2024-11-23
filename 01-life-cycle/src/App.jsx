@@ -26,12 +26,14 @@ function App() {
 
   return (
     <>
-      <input type="text" onChange={(e) => setCycleProp(e.target.value)} />
-      <button type="button" onClick={() => setCyclePropValue(cycleProp)}>
-        set Prop
-      </button>
+      <div className="inputs">
+        <input type="text" onChange={(e) => setCycleProp(e.target.value)} />
+        <button type="button" onClick={() => setCyclePropValue(cycleProp)}>
+          set Prop
+        </button>
+      </div>
 
-      {cyclePropValue ? <Cycle heading={cyclePropValue} /> : <h1> Empty </h1>}
+      {cyclePropValue ? <Cycle heading={cyclePropValue} /> : ""}
     </>
   );
 }

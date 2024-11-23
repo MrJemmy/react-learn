@@ -1,0 +1,15 @@
+.inputs input {
+  display: block;
+  margin-right: 8px;
+  padding: 8px;
+}
+
+.inputs button {
+  display: block;
+  padding: 8px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+}
