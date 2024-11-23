@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "../css/custom.module.css";
+import Button from "react-bootstrap/Button";
 
 function Cycle(props) {
   const [count, setCount] = useState(0);
@@ -40,12 +41,12 @@ function Cycle(props) {
 
       <div className={style.counter_box}>
         <h2>{count}</h2>
-        <button onClick={() => setCount(count + 1)}>count</button>
+        <Button onClick={() => setCount(count + 1)}>count</Button>
       </div>
 
       <div className={style.counter_box}>
         <h2>{counter}</h2>
-        <button onClick={() => setCounter(counter + 1)}>counter</button>
+        <Button onClick={() => setCounter(counter + 1)}>counter</Button>
       </div>
     </>
   );
