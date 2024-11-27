@@ -5,7 +5,7 @@
 > - cd filename
 > - npm start
 
-### For 2nd project 
+### For 2nd project
 > - npm create vite@latest filename
 > - select : react
 > - select : javascript
