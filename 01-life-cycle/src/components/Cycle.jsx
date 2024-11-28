@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../css/custom.module.css";
 import Button from "react-bootstrap/Button";
 
-function Cycle(props) {
+const Cycle = React.memo((props) => {
   const [count, setCount] = useState(0);
   const [counter, setCounter] = useState(0);
 
@@ -50,6 +50,5 @@ function Cycle(props) {
       </div>
     </>
   );
-}
-
+})
 export default Cycle;
