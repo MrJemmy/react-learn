@@ -1,10 +1,10 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Cycle from "./components/Cycle";
 
 function App() {
-  const [cycleProp, setCycleProp] = useState(null);
   const [cyclePropValue, setCyclePropValue] = useState(null);
+  const inputRef = useRef();
 
   useEffect(() => {
     console.log("(APP - first load) : run only onces");
@@ -24,11 +24,15 @@ function App() {
     };
   }, []);
 
+  const handelClick= ()=>{
+    setCyclePropValue(inputRef.current.value)
+  }
+
   return (
     <>
       <div className="inputs">
-        <input type="text" onChange={(e) => setCycleProp(e.target.value)} />
-        <button type="button" onClick={() => setCyclePropValue(cycleProp)}>
+        <input type="text" ref={inputRef} />
+        <button type="button" onClick={handelClick}>
           set Prop
         </button>
       </div>
