@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Cycle from "./components/Cycle";
 
 function App() {
@@ -24,7 +24,12 @@ function App() {
     };
   }, []);
 
+  // const handelClick= useCallback(()=>{
+  //   console.log("called:", cyclePropValue)
+  //   setCyclePropValue(inputRef.current.value)
+  // }, [])
   const handelClick= ()=>{
+    console.log("called:", cyclePropValue)
     setCyclePropValue(inputRef.current.value)
   }
 
