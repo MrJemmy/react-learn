@@ -1,0 +1,33 @@
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+nav ul li a, .link-404 a, .user-profiles a{
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    margin: 0 5px;
+}
+
+nav ul li a:active, .link-404 a:active, .user-profiles a:active{
+    background-color: rgb(183, 123, 10);
+}
+
+
+.user-profiles, .link-404, h1, nav ul{
+    text-align: center;
+}

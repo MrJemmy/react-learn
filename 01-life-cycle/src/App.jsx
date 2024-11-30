@@ -24,19 +24,17 @@ function App() {
     };
   }, []);
 
-  // const handelClick= useCallback(()=>{
-  //   console.log("called:", cyclePropValue)
-  //   setCyclePropValue(inputRef.current.value)
-  // }, [])
-  const handelClick= ()=>{
+  const handelClick= useCallback(()=>{
+    // using useCallback: this function will render only once, so useState will have intial value only
+    // when not to use : The function isn't passed to a memoized child and The component doesn’t re-render frequently or performance isn't an issue.
     console.log("called:", cyclePropValue)
     setCyclePropValue(inputRef.current.value)
-  }
+  }, [])
 
   return (
     <>
       <div className="inputs">
-        <input type="text" ref={inputRef} />
+        <input type="text" defaultValue={"test"} ref={inputRef} />
         <button type="button" onClick={handelClick}>
           set Prop
         </button>
