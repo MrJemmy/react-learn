@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+// useParams : for dynamic routing
 
 function User() {
 

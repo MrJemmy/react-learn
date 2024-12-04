@@ -27,6 +27,10 @@ nav ul li a:active, .link-404 a:active, .user-profiles a:active{
     background-color: rgb(183, 123, 10);
 }
 
+nav ul li a.active{
+    background-color: darkorange;
+    border: 0.5px solid darkred;
+}
 
 .user-profiles, .link-404, h1, nav ul{
     text-align: center;
