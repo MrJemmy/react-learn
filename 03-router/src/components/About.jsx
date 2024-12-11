@@ -7,9 +7,9 @@ function About() {
 
             <div> 
                 <h1>Our Users</h1>
-
+                
                 <div className="user-profiles">
-                    <Link to='/user/Jaimin'> Jaimin </Link>
+                    <Link to='/user/Jaimin' state={{data: "data1", item:"items"}} > Jaimin </Link>
                     <Link to='/user/Gunjan'> Gunjan </Link>
                 </div>
             </div>
