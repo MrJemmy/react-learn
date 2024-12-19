@@ -1,10 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import style from "../css/custom.module.css";
 import Button from "react-bootstrap/Button";
 
 const Cycle = React.memo((props) => {
   const [count, setCount] = useState(0);
   const [counter, setCounter] = useState(0);
+  const prevProps = useRef(props);
+
+  useEffect(() => {
+    // Access previous props here
+    console.log('Previous props:', prevProps.heading);
+
+    // Update prevProps for the next render
+    prevProps.heading = props.heading;
+  }, [props]);
+
 
   useEffect(() => {
     console.log("(Cycle - first load) : run only onces");
@@ -35,6 +45,14 @@ const Cycle = React.memo((props) => {
     textAlign: "center",
   };
 
+  const updateCounter = () => {
+    const random = String(Math.ceil(Math.random() * 10000)).padEnd(4, "0")
+    setCounter( (pre)=> {
+      console.log("This is previous value of random :", pre)
+      return random
+    } )
+  }
+
   return (
     <>
       <h1 style={headingStyle}>props: {props.heading}</h1>
@@ -46,7 +64,7 @@ const Cycle = React.memo((props) => {
 
       <div className={style.counter_box}>
         <h2>{counter}</h2>
-        <Button onClick={() => setCounter(counter + 1)}>counter</Button>
+        <Button onClick={updateCounter}>counter</Button>
       </div>
     </>
   );
