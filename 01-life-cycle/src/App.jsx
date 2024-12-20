@@ -44,6 +44,7 @@ function App() {
 
       <AppProvider value={{ colorContext: cyclePropValue }}>
         <div>
+          {/* to update component when appValue set by other componnt it shoulde be passed from here as useStates */}
           child value : {context?.appValue || "empty"}
         </div>
         {cyclePropValue ? <Cycle heading={cyclePropValue} /> : <></>}
