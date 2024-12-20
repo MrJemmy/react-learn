@@ -1,13 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import style from "../css/custom.module.css";
 import Button from "react-bootstrap/Button";
+import {globalContext} from "../context/globalContext";
 
 const Cycle = React.memo((props) => {
   const [count, setCount] = useState(0);
   const [counter, setCounter] = useState(0);
   const prevProps = useRef(props);
+  const context = useContext(globalContext); 
 
   useEffect(() => {
+    // same thing we can do in parent
+
     // Access previous props here
     console.log('Previous props:', prevProps.heading);
 
@@ -41,14 +45,20 @@ const Cycle = React.memo((props) => {
   }, [props.heading]);
 
   const headingStyle = {
-    backgroundColor: "red",
+    backgroundColor: context.colorContext,
     textAlign: "center",
   };
 
   const updateCounter = () => {
+    // retuning null then it will re render?
+    //  if we pass same value as previous then component will not update state also component did not re render.
+
     const random = String(Math.ceil(Math.random() * 10000)).padEnd(4, "0")
     setCounter( (pre)=> {
       console.log("This is previous value of random :", pre)
+      if (pre === random) {
+        return pre
+      }
       return random
     } )
   }
