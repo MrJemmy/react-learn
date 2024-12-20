@@ -1,11 +1,12 @@
 import "./App.css";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useContext } from "react";
 import Cycle from "./components/Cycle";
-import {globalContext} from "./context/globalContext";
+import { AppProvider, AppContext } from "./context/AppContext";
 
 function App() {
   const [cyclePropValue, setCyclePropValue] = useState(null);
   const inputRef = useRef();
+  const context = useContext(AppContext);
 
   useEffect(() => {
     console.log("(APP - first load) : run only onces");
@@ -41,9 +42,13 @@ function App() {
         </button>
       </div>
 
-      <globalContext.Provider value={{colorContext: cyclePropValue}}>
-        {cyclePropValue ? <Cycle heading={cyclePropValue} /> : ""}
-      </globalContext.Provider>
+      <AppProvider value={{ colorContext: cyclePropValue }}>
+        <div>
+          child value : {context?.appValue || "empty"}
+        </div>
+        {cyclePropValue ? <Cycle heading={cyclePropValue} /> : <></>}
+
+      </AppProvider>
     </>
   );
 }

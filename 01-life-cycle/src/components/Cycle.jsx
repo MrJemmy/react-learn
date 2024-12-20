@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import style from "../css/custom.module.css";
 import Button from "react-bootstrap/Button";
-import {globalContext} from "../context/globalContext";
+import {AppContext} from "../context/AppContext";
 
 const Cycle = React.memo((props) => {
   const [count, setCount] = useState(0);
   const [counter, setCounter] = useState(0);
   const prevProps = useRef(props);
-  const context = useContext(globalContext); 
+  const context = useContext(AppContext); 
 
   useEffect(() => {
     // same thing we can do in parent
@@ -25,6 +25,7 @@ const Cycle = React.memo((props) => {
   }, []);
 
   useEffect(() => {
+    console.log("context :",context)
     console.log(
       "(Cycle - every load): run every time when component re-render"
     );
@@ -59,6 +60,7 @@ const Cycle = React.memo((props) => {
       if (pre === random) {
         return pre
       }
+      context.setAppValue(random)
       return random
     } )
   }
